@@ -49,8 +49,8 @@ def fillBD():
             ]
             Order.insert_many(orders).execute()
         CheckForTable = True
-    else:
-        print("Базы данных не существует!")
+else:
+        print("Database does not exist!")
     return CheckForTable
 
 def showClientsBD():
@@ -61,7 +61,7 @@ def showClientsBD():
         for i in Client.select():
             print(f"{i.id : <10}{i.Name : <15}{i.City : <15}{i.Address : <10}")
     else:
-        print("Базы данных не существует!")
+        print("Database does not exist!")
     return Client.select().count()
 
 def showOrdersBD():
@@ -72,20 +72,21 @@ def showOrdersBD():
         for i in Order.select():
             print(f"{i.id : <10}{i.Client_id}\t\t{i.Date}\t{i.Amount : <10}{i.Description : <10}")
     else:
-        print("Базы данных не существует!")
+        print("Database does not exist!")
     return Order.select().count()
 
 if __name__ == "__main__":     
-    print("Выберите желаемое действие\n1) инициализация\n2) заполнить\n3) отобразить TableName")
-    task = input('Ваш выбор: ')
+    print("Choose an action\n1) initialize\n2) fill\n3) display TableName")
+    task = input('Your choice: ')
     if (task == '1'):
         createBD()
          
     if (task == '2'):
         fillBD()
         
-    if (task == 'показать клиентов'):
+    if (task == 'show clients'):
         showClientsBD()
 
-    if (task == 'показать заказы'):
+    if (task == 'show orders'):
         showOrdersBD()
+
