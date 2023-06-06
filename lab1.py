@@ -49,7 +49,7 @@ def fillBD():
             ]
             Order.insert_many(orders).execute()
         CheckForTable = True
-else:
+    else:
         print("Database does not exist!")
     return CheckForTable
 
